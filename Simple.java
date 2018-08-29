@@ -23,7 +23,6 @@ public class Simple extends Object{
     public Simple(){
 
         this(" ", 1, true, new Integer[]{1,2,3}, 0);
-
     }
 
     //Constructs a Simple object initialized to specified values
@@ -39,7 +38,7 @@ public class Simple extends Object{
     }
     //METHODS******************************************
 
-    //modifies the state by inverting the logical value
+    //Accesses the logical component of state
     public Boolean truth(){
 
         return this.truth;
@@ -49,16 +48,13 @@ public class Simple extends Object{
     public String text(){
 
         return this.text;
-
     }
 
     //Accesses the numerical component of the state
     public Number number(){
 
         return this.number;
-
     }
-
 
     //Modifies the state by inverting the logical values
     public void flip(){
@@ -67,12 +63,10 @@ public class Simple extends Object{
 
     }
 
-
     //Renders Simple object in the format: Simple[truth, number, "text"]
     public String toString(){
 
         return "Simple[" +truth+ ", " +number+ ", " +text+ "]";
-
     }
 
     //Accesses items of the sequence, in order, beginning with initial values passed into constrctor
@@ -97,8 +91,6 @@ public class Simple extends Object{
             //decided to just have it return the last element in the sequence
             newVals = initVals[initVals.length - 1];
         }
-
-
         return newVals;
     }
 
