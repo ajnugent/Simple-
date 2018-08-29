@@ -89,7 +89,10 @@ public class Simple extends Object{
             }
             initVals = Arrays.copyOf(initVals, initVals.length + 1);
             initVals[initVals.length - 1] = newVals;
-        }else{
+        }else if(initVals.length == 0){ //empty sequence
+            newVals = 0;
+        }
+        else{
             //the behavior of sequences for which depth is greater than number of the initial values is unspecified
             //decided to just have it return the last element in the sequence
             newVals = initVals[initVals.length - 1];
@@ -103,7 +106,7 @@ public class Simple extends Object{
     public static void main (String[] args){
 
         Simple obj = new Simple();
-        Simple obj2 = new Simple("Hello World", 42, false, new Integer[]{5, 4, 3, 2, 1}, 3 );
+        Simple obj2 = new Simple("Hello World", 42, false, new Integer[]{5, 4, 3, 2, 1}, 6 );
 
         System.out.println(obj.toString());
         System.out.println(obj2.toString());
