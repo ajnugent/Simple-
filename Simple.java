@@ -1,16 +1,23 @@
 import java.util.*; //for array
 
 
-/*A mutable object that maintains state, includes text, numerical data,
-logical data, and an infinite length sequence of integers
-*/
+/**
+ * A mutable object that maintains state. Components of state include textual data, numerical data,
+ * logical data, and an infinite-length sequence of integers.  The parameters to the constructor establish
+ * the initial state of the object including the characteristics of the numerical sequence.
+ * @version Fall 2018 v1.0.2
+ * @author Jackie Nugent
+ */
+
+
+
 
 public class Simple extends Object{
-    //the text status of object
+    /** The text status of this object*/
     String text;
-    //the numerical data of object
+    /** The numerical data of this object*/
     Number number;
-    //the logical data of object
+    /** The numerical data of this object*/
     Boolean truth;
     //initial values of the sequence
     Integer[] initVals;
@@ -18,15 +25,21 @@ public class Simple extends Object{
     //added together to calculate the next value of the sequence
     int depth;
 
-    //CONSTRUCTORS*************************************
-    //constructs a Simple object using arbitrary values
+    /**
+     * Constructs a Simple object using arbitrary values.
+     */
     public Simple(){
 
         this(" ", 1, true, new Integer[]{1,2,3}, 0);
     }
 
-    //Constructs a Simple object initialized to specified values
-    //and sequence definition.
+    /** Constructs a Simple object initialized to the specified values and sequence definition.<br><br>
+     * @param text the textual data
+     * @param number the numerical data
+     * @param truth the logical data
+     * @param initVals the initial values of the sequence
+     * @param depth after all initial values have been exhausted, the number of previous (historical) values added together to calculate the next value of the sequence
+     */
 
     public Simple(String text, Number number, Boolean truth, Integer[] initVals, int depth){
         this.text = text;
@@ -36,46 +49,62 @@ public class Simple extends Object{
         this.depth = depth;
 
     }
-    //METHODS******************************************
-
-    //Accesses the logical component of state
+    /**
+     * Accesses the logical component of state.
+     * @return the truth status
+     */
     public Boolean truth(){
 
         return this.truth;
     }
 
-    //Accesses the textual component of state
+    /**
+     * Accesses the textual component of state.
+     * @return the text status
+     */
     public String text(){
 
         return this.text;
     }
 
-    //Accesses the numerical component of the state
+    /**
+     * Accesses the numerical component of state.
+     * @return the numeric status
+     */
     public Number number(){
 
         return this.number;
     }
 
-    //Modifies the state by inverting the logical values
+    /**
+     * Modifies the state by inverting the logical value. If the logical state was true, it is changed to false.
+     * If the logical state was false, it is changed to true.
+     */
     public void flip(){
 
         this.truth = !truth;
 
     }
 
-    //Renders Simple object in the format: Simple[truth, number, "text"]
+    /**
+     * Renders Simple object in the format: Simple[truth, number, "text"]
+     */
+    @Override
     public String toString(){
 
         return "Simple[" +truth+ ", " +number+ ", " +text+ "]";
     }
 
-    //Accesses items of the sequence, in order, beginning with initial values passed into constrctor
+    /**
+     * Accesses items of the sequence, in order, beginning with the initial values passed into the constructor.
+     * The first invocation returns the initial element of the sequence specified by the parameter to the constructor.
+     * Modifies state so that the subsequent invocation will return the following item of the sequence.
+     * @return the item in the sequence corresponding to the number of times the method has been invoked
+     */
 
     public Integer nextInSequence(){
 
-        //for(Integer i : initVals){
-         //   System.out.print(i+ "");
-        //}
+
         Integer newVals = 0;
         if(depth <= initVals.length){
             for(int i = 1; i < depth + 1; i++){
@@ -94,7 +123,8 @@ public class Simple extends Object{
         return newVals;
     }
 
-   //Main method for testing purposes
+    //Main method for testing purposes
+    /*
     public static void main (String[] args){
 
         Simple obj = new Simple();
@@ -125,5 +155,5 @@ public class Simple extends Object{
         System.out.println(obj2.nextInSequence());
 
     }
+    */
 }
-
