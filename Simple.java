@@ -33,7 +33,15 @@ public class Simple extends Object{
         this(" ", 1, true, new Integer[]{1,2,3}, 0);
     }
 
-    /** Constructs a Simple object initialized to the specified values and sequence definition.<br><br>
+    /** Constructs a Simple object initialized to the specified values and sequence definition.<br><p><br>
+     Sequence definition examples:<br><br>
+     Simple(... {4, 9, 12}, 0) defines sequence [4, 9, 12, 0, 0, 0, 0, ...]<br>
+     * Simple(... {7}, 1) defines sequence [7, 7, 7, 7, 7, 7, ...]<br>
+     * Simple(... {3, 8}, 1) defines sequence [3, 8, 8, 8, 8, 8, 8, ...]<br>
+     * Simple(... {2, 4}, 2) defines sequence [2, 4, 6, 10, 16, 26, 42, 68, ...]<br>
+     * Simple(... {2, 4, 6, 8}, 3) defines sequence [2, 4, 6, 8, 18, 32, 58, 108, ...]<br></p>
+     *<br>
+     * The behavior of sequences for which depth is greater than number of the initial values is unspecified.<br>
      * @param text the textual data
      * @param number the numerical data
      * @param truth the logical data
